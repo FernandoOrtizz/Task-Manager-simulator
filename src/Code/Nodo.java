@@ -1,3 +1,5 @@
+package Code;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,17 +11,20 @@
  * @author ferna
  */
 public class Nodo {
-    Nodo siguiente;
-    int CPU, quantum, proceso, residuo;
-    String estado;
+    public Nodo siguiente = null;
+    public int CPU, proceso, prioridad, tiempoLlegada, tiempoespera;
+    public String estado;
     
-    public Nodo(int proceso, int CPU, int quantum, int residuo, String estado){ //Constructor
+    public Nodo(int proceso, int CPU, int prioridad, int tiempoLlegada, String estado, int tiempoespera){ //Constructor
         this.proceso = proceso;
         this.siguiente = null;
         this.CPU = CPU;
         this.estado = estado;
-        this.quantum = quantum;
-        this.residuo = residuo;
+        //this.quantum = quantum;
+        this.prioridad = prioridad;
+        this.tiempoLlegada = tiempoLlegada;
+        this.tiempoespera = tiempoespera;
+        
     }
     
     public int obtenerProceso(){
@@ -30,12 +35,12 @@ public class Nodo {
         return CPU;
     }
     
-    public int obtenerQuantum(){
+    /*public int obtenerQuantum(){
         return quantum;
-    }
+    }*/
     
-    public int obtenerResiduo(){
-        return residuo;
+    public int obtenerPrioridad(){
+        return prioridad;
     }
     
     public String obtenerEstado(){
@@ -44,6 +49,10 @@ public class Nodo {
     
     public int obtenerIndiceProceso(){
         return proceso;
+    }
+    
+    public int obtenerTiempollegada(){
+        return tiempoLlegada;
     }
     
     public void enlazarSiguiente(Nodo nodoSig){
